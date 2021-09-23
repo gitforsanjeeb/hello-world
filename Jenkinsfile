@@ -8,7 +8,7 @@ pipeline {
     stage("Build and Unit Test") {
       steps {
         echo "building and unit testing the application..."
-        mvn clean package
+        sh 'mvn clean package'
       }
     }
     /*stage("test") {
