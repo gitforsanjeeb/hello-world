@@ -1,23 +1,24 @@
 pipeline {
   agent any
   stages {
-    stage("build") {
+    stage("Build and Unit Test") {
       steps {
-        echo "building the application..."
+        echo "building and unit testing the application..."
+        mvn clean package
       }
     }
-    stage("test") {
+    /*stage("test") {
         when {
             expression{
-                echo "master branch code is getting tested"
-                BRANCH_NAME == "master"
+                echo "develop branch code is getting tested"
+                BRANCH_NAME == "develop"
             }
         }
         steps {
         echo "testing the application..."
       }
-    }
-    stage("deploy") {
+    }*/
+    stage("Deploy Application") {
       steps {
         echo "deploying the application..."
       }
